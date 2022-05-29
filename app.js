@@ -30,17 +30,6 @@ app.get("/", (req, res) => {
 
 // your code here!
 
-app.get("/newFeeds", async (req, res) => {
-  try {
-    const limit = parseInt(req.query.limit) || onePageArticleCount;
-    const offset = parseInt(req.query.offset) || 0;
-    const articles = await newsArticleModel.find().skip(offset).limit(limit);
-    res.status(200).send(articles);
-  } catch (error) {
-    res.status(400).send({ message: error.message });
-  }
-});
-
 // ==end==
 
 module.exports = { app, db };
